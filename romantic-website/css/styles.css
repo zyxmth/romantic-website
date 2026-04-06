@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-rose: #e91e63;
+    --dark-rose: #c2185b;
+    --light-rose: #f8bbd0;
+    --very-light-rose: #fce4ec;
+    --cream: #faf9f7;
+    --text-dark: #5a4a47;
+    --text-light: #8b6f6f;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fef5f7 0%, #ffe4ec 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    text-align: center;
+    animation: slideUp 0.6s ease-out;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.content.hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* Button Styles */
+.main-btn {
+    background: linear-gradient(135deg, var(--primary-rose) 0%, var(--dark-rose) 100%);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+}
+
+.main-btn:active {
+    transform: translateY(-1px);
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.secondary-btn {
+    background: white;
+    color: var(--primary-rose);
+    border: 2px solid var(--primary-rose);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.15);
+}
+
+.secondary-btn:hover {
+    background: var(--light-rose);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.25);
+}
+
+.secondary-btn:active {
+    transform: translateY(0);
+}
+
+/* Message Box (Discord-like Embed) */
+.message-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 187, 208, 0.1) 100%);
+    border-left: 5px solid var(--primary-rose);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(233, 30, 99, 0.2);
+    margin: 20px auto;
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.6s ease-out 0.1s both;
+    overflow: visible;
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Message Image */
+.message-image {
+    width: 100%;
+    max-height: 350px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: block;
+    flex-shrink: 0;
+    background-color: var(--very-light-rose);
+}
+
+.message-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-rose);
+    margin-bottom: 15px;
+    letter-spacing: 0.3px;
+    width: 100%;
+    text-align: center;
+}
+
+.message-text {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    letter-spacing: 0.4px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Back Button */
+.back-btn {
+    background: white;
+    color: var(--primary-rose);
+    border: 2px solid var(--primary-rose);
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.15);
+    margin-top: 25px;
+    display: inline-block;
+    align-self: center;
+}
+
+.back-btn:hover {
+    background: var(--light-rose);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.25);
+}
+
+.back-btn:active {
+    transform: translateY(0);
+}
+
+/* Falling Hearts Animation */
+.falling-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    top: -50px;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Random Popup Images Container */
+.random-popups {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Random Popup Image */
+.random-popup-img {
+    position: absolute;
+    top: -150px;
+    width: auto;
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: contain;
+    opacity: 0.7;
+    filter: drop-shadow(0 2px 4px rgba(233, 30, 99, 0.2));
+}
+
+@keyframes popupFall {
+    0% {
+        top: -150px;
+        opacity: 0.5;
+        transform: scale(0.8) rotate(0deg);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+@keyframes popupFallSlow {
+    0% {
+        top: -150px;
+        opacity: 0.5;
+        transform: scale(0.8) rotate(0deg);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: scale(1) rotate(-360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .message {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+    }
+
+    .main-btn {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+    }
+
+    .button-group {
+        gap: 15px;
+    }
+
+    .secondary-btn {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+
+    .message-box {
+        padding: 25px;
+    }
+
+    .message-image {
+        max-height: 280px;
+        margin-bottom: 18px;
+    }
+
+    .message-title {
+        font-size: 1.2rem;
+    }
+
+    .message-text {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        margin-top: 20px;
+    }
+
+    .heart {
+        font-size: 1.5rem;
+    }
+
+    .random-popup-img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .message {
+        font-size: 1rem;
+        margin-bottom: 35px;
+    }
+
+    .main-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .secondary-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    .message-box {
+        padding: 20px;
+        border-left-width: 4px;
+        margin: 15px auto;
+    }
+
+    .message-image {
+        max-height: 220px;
+        margin-bottom: 15px;
+    }
+
+    .message-title {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .message-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .back-btn {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-top: 18px;
+    }
+
+    .heart {
+        font-size: 1.2rem;
+    }
+
+    .random-popup-img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+}
