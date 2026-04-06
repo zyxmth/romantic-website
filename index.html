@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Moments</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="falling-hearts" id="heartContainer"></div>
+    <div class="random-popups" id="randomPopupContainer"></div>
+    
+    <div class="container">
+        <div class="content" id="mainContent">
+            <p class="message">All these for you, Zuki. SIX SEVEN</p>
+            
+            <button class="main-btn" onclick="navigateTo('message1')">♡⸝⸝ My Confession ꫂ᭪݁</button>
+            
+            <div class="button-group">
+                <button class="secondary-btn" onclick="navigateTo('message3')">Clues</button>
+                <button class="secondary-btn" onclick="navigateTo('message2')">About me</button>
+            </div>
+        </div>
+
+        <div class="content hidden" id="message1Content">
+            <div class="message-box">
+                <img src="assets/images/confession.jpg" alt="My Confession" class="message-image" onerror="handleImageError(this)">
+                <h2 class="message-title">You are everything i've been looking for, Zuki.</h2>
+                <p class="message-text">
+                    I've kept this feeling to myself for months now, and I still struggle to express it to you. Maybe I wasn't ready yet, or maybe I felt like I wasn't good enough for you.
+
+Zuki, I've liked you for a long time. We met months ago, or maybe it's already been a year. I'm not sure, but I do know I like you a lot.
+
+Right now, I still can't fully express everything because I'm afraid of being exposed. I know your Instagram, your humor, and a little about you. Sadly, you don't know who I am. Still, I'm glad I got to tell you how I feel. I hope you appreciate this message, even if it's simple.
+
+I also heard you like Among Us. You seem good at investigating, so maybe you can use those skills to find me.
+
+I like you, Zuki. I really do.
+                </p>
+                <button class="back-btn" onclick="goBack()">← Back</button>
+            </div>
+        </div>
+
+        <div class="content hidden" id="message3Content">
+            <div class="message-box">
+                <img src="assets/images/clues.jpg" alt="Clues" class="message-image" onerror="handleImageError(this)">
+                <h2 class="message-title">Clues</h2>
+                <p class="message-text">
+                    There was a time that we had a interaction before. We had a conversation before. For now, I really can't expose so much clues here. Make sure to come back tomorrow, so I can add another clue.
+                </p>
+                <button class="back-btn" onclick="goBack()">← Back</button>
+            </div>
+        </div>
+
+        <div class="content hidden" id="message2Content">
+            <div class="message-box">
+                <img src="assets/images/about.jpg" alt="About me" class="message-image" onerror="handleImageError(this)">
+                <h2 class="message-title">About me</h2>
+                <p class="message-text">
+                    Maybe I'll reveal myself once i know that you actually knows me. I hope you'll find out who I am someday, Zuki. Until then, I'll just be here, hoping that one day you'll understand how much I care about you.
+                </p>
+                <button class="back-btn" onclick="goBack()">← Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/hearts.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
